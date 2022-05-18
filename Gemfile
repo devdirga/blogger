@@ -57,3 +57,7 @@ gem "prawn-html"
 gem "prawn-rails"
 
 gem "mandrill_mailer"
+
+gem "dcidev_mailer"
+
+gem 'dotenv-rails', '~> 2.7.6'

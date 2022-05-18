@@ -5318,3 +5318,1475 @@ ODgzCiUlRU9GCg==
 ----==_mimepart_62834fc6c27d6_b6064f74527--
 
 [ActiveJob] [ActionMailer::MailDeliveryJob] [51b1047d-1e45-46f2-b9c9-36cd428a4f48] Performed ActionMailer::MailDeliveryJob (Job ID: 51b1047d-1e45-46f2-b9c9-36cd428a4f48) from Async(default) in 3332.96ms
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-17 17:18:49 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-17 10:18:49.863722"], ["updated_at", "2022-05-17 10:18:49.863722"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 5.1ms | Allocations: 2005)
+  [1m[36mAuthor Load (2.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 837fcf85-16b5-4dbc-b517-7e24d04ba910) to Async(default) with arguments: "SubscriberMailer", "mail_to_subscriber", "deliver_now", {:args=>[#<GlobalID:0x00007fc2214be5e8 @uri=#<URI::GID gid://blogger/Subscriber/3>>, #<GlobalID:0x00007fc2214bdf80 @uri=#<URI::GID gid://blogger/Author/2>>, #<GlobalID:0x00007fc2214bd238 @uri=#<URI::GID gid://blogger/Article/32>>]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [837fcf85-16b5-4dbc-b517-7e24d04ba910]   [1m[36mSubscriber Load (12.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::MailDeliveryJob] [837fcf85-16b5-4dbc-b517-7e24d04ba910]   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::MailDeliveryJob] [837fcf85-16b5-4dbc-b517-7e24d04ba910]   [1m[36mArticle Load (1.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::MailDeliveryJob] [837fcf85-16b5-4dbc-b517-7e24d04ba910] Performing ActionMailer::MailDeliveryJob (Job ID: 837fcf85-16b5-4dbc-b517-7e24d04ba910) from Async(default) enqueued at 2022-05-17T10:18:50Z with arguments: "SubscriberMailer", "mail_to_subscriber", "deliver_now", {:args=>[#<GlobalID:0x00007fc22155c900 @uri=#<URI::GID gid://blogger/Subscriber/3>>, #<GlobalID:0x00007fc221556c80 @uri=#<URI::GID gid://blogger/Author/2>>, #<GlobalID:0x00007fc221556550 @uri=#<URI::GID gid://blogger/Article/32>>]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [837fcf85-16b5-4dbc-b517-7e24d04ba910]   Rendering html template
+[ActiveJob] [ActionMailer::MailDeliveryJob] [837fcf85-16b5-4dbc-b517-7e24d04ba910]   Rendered html template (Duration: 0.1ms | Allocations: 13)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [837fcf85-16b5-4dbc-b517-7e24d04ba910] SubscriberMailer#mail_to_subscriber: processed outbound mail in 28.8ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [837fcf85-16b5-4dbc-b517-7e24d04ba910] Delivered mail 6283768a414f5_1363e4f74-320@dirga-ThinkPad-X250.mail (4028.0ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [837fcf85-16b5-4dbc-b517-7e24d04ba910] Date: Tue, 17 May 2022 17:18:50 +0700
+From: notifications@example.com
+To: dirgantoro.developer@gmail.com
+Message-ID: <6283768a414f5_1363e4f74-320@dirga-ThinkPad-X250.mail>
+Subject: Hello dirgantoro
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_6283768a3e541_1363e4f74-49a";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_6283768a3e541_1363e4f74-49a
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h2>Hai, dirgantoro.</h2></br><h4>dirga baru saja membuat artikel baru</h4>
+----==_mimepart_6283768a3e541_1363e4f74-49a
+Content-Type: application/pdf;
+ filename="Android Monetizazion.pdf"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="Android Monetizazion.pdf"
+Content-ID: <6283768a4260a_1363e4f74-283@dirga-ThinkPad-X250.mail>
+
+JVBERi0xLjMKJf////8KMSAwIG9iago8PCAvQ3JlYXRvciA8MTEzMWZmNmZk
+Zj4KL1Byb2R1Y2VyIDwxMTMxZmY2ZmRmPgo+PgplbmRvYmoKMiAwIG9iago8
+PCAvVHlwZSAvQ2F0YWxvZwovUGFnZXMgMyAwIFIKPj4KZW5kb2JqCjMgMCBv
+YmoKPDwgL1R5cGUgL1BhZ2VzCi9Db3VudCAxCi9LaWRzIFs1IDAgUl0KPj4K
+ZW5kb2JqCjQgMCBvYmoKPDwgL0xlbmd0aCA5OTAKPj4Kc3RyZWFtCnUKlF45
+KYrO29/2onl6RRu/gJq4Gb8pnYDk+BRTEahyybPf/oH3DCkQoDR5U99JzeLl
+4nrvNJ2X8nXn3zk0KHAx5Aj7tbsm8iIxWyya28DlZ4fdyfEYym99iEr4TblM
+otfQOfsp4Z+jDhGAQfIHkfnm097/HmB4C6mIbrEeCzx6yEExYNU+9evscTXg
+PBznCpoQqX5ZAvfE9EcVcm5M8zjgUho5E1Lh4sAaPdp1os8CYwIa8+VTMi2v
+D6aQDDxcxzIGul+55lfBJwb3nCR7MjNbZRFajRYoUCJpll4S8e/Ve99391oL
+XpBBBPvl/oXh2juBw7hJEmqdnnGrCNYAOmkZ3Q+rm9vE+L0dFi4h5+SS+PPK
+Yh/Xr0xpDFzgsLMh7m3X7OQTOYkPRTNd7aoIpIHqYujsnJN9g3VdZlPEoXA9
+dl+jUh3qKvTwWBursL3BNpVRCIPdzHlOct8yKoe1Z6MCNiODJJuKX3uTqf9L
+vOY1Oyd7aIFLS6w3i7PAa/xnALFBwQfJ//5GbGnKW4cFj9dtZZPSbyTO+Onx
+4Ce+60TZSUJduSOtUvcTAmgLv2JVuK7fNQtilxN2+aquLWY9caPURm721OgW
+WwTf1jtlMmq4BUKE8Cu4o0lQEUfMURG3rpzt+wv22wvypNDiUYvvLJQbEmhM
+wsEbqooZorNqgGsNK4TaXqSCkPc9izOY/zIziEL2FvuGAsXy/pp9w3juJRyp
+bCc8XFaPItvpNwjJp4y0QfFFDUEYWbZCc+zdEA6qjwoebpx1k2MKM77gDqj+
+Aa+frNwmphOuLEFtwfJ0a8K3EjhHgqhBpkUo+oZq88h2qZAp4UXw0DJNfSS8
+JjMPA0CcZ8/blmVTTC+k3y41JIilgcjL1GWZDw10/jTqxfUKywp920YATs6t
+XXP+OC+8TkAHQj6ya4W2luCQCqU/ji4h8l0Gjwceb1FcAfKqQ8IpteOLQoY3
+4dr74jguhge/WB5FscXe3zaRWfkkTlAFl614r4GWA2ioZhjZXnbEUA5vwo5c
+Ao7UPCRqkxKr6LKI+Mr7d2FHoMLT1l7q6urnHtM8Zvm6g/ZbLgfKk9wSnVSl
+sCEEHRrl7IVc64yB1R300va02jxGARL58VLYYY1CSgocQQYVOyb45+MEB5lT
+VqQRZJZIEPNGPTIYtveQlvc+N1L5eGj5N/oM/KavHRsl5/eQ3GT29rSJ5S3E
+f47U3MbtrU3X0IejxTpG+wpLZc/Wdq8Rkb8ZdmkaTP3BBI4LsfmUZC9fwTLs
+9lGCQAXjyXLAEFVKZySHNvFLp7fXJMbGG+6SdLV7fZ2+DdkAPqjT3AplbmRz
+dHJlYW0KZW5kb2JqCjUgMCBvYmoKPDwgL1R5cGUgL1BhZ2UKL1BhcmVudCAz
+IDAgUgovTWVkaWFCb3ggWzAgMCA2MTIgNzkyXQovQ3JvcEJveCBbMCAwIDYx
+MiA3OTJdCi9CbGVlZEJveCBbMCAwIDYxMiA3OTJdCi9UcmltQm94IFswIDAg
+NjEyIDc5Ml0KL0FydEJveCBbMCAwIDYxMiA3OTJdCi9Db250ZW50cyA0IDAg
+UgovUmVzb3VyY2VzIDw8IC9Qcm9jU2V0IFsvUERGIC9UZXh0IC9JbWFnZUIg
+L0ltYWdlQyAvSW1hZ2VJXQovRm9udCA8PCAvRjIuMCA2IDAgUgovRjEuMCA3
+IDAgUgo+Pgo+Pgo+PgplbmRvYmoKNiAwIG9iago8PCAvVHlwZSAvRm9udAov
+U3VidHlwZSAvVHlwZTEKL0Jhc2VGb250IC9IZWx2ZXRpY2EtQm9sZAovRW5j
+b2RpbmcgL1dpbkFuc2lFbmNvZGluZwo+PgplbmRvYmoKNyAwIG9iago8PCAv
+VHlwZSAvRm9udAovU3VidHlwZSAvVHlwZTEKL0Jhc2VGb250IC9IZWx2ZXRp
+Y2EKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKPj4KZW5kb2JqCnhyZWYK
+MCA4CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxNSAwMDAwMCBuIAow
+MDAwMDAwMDgxIDAwMDAwIG4gCjAwMDAwMDAxMzAgMDAwMDAgbiAKMDAwMDAw
+MDE4NyAwMDAwMCBuIAowMDAwMDAxMjI4IDAwMDAwIG4gCjAwMDAwMDE1MDYg
+MDAwMDAgbiAKMDAwMDAwMTYwOCAwMDAwMCBuIAp0cmFpbGVyCjw8IC9TaXpl
+IDgKL1Jvb3QgMiAwIFIKL0luZm8gMSAwIFIKL0VuY3J5cHQgPDwgL0ZpbHRl
+ciAvU3RhbmRhcmQKL1YgMQovUiAyCi9PIDw5ZjYzMjQ1NzlkNWNjNjA4MTU2
+ZTJkYTE2YmI5OTc5MmNiNTNmNGRjNjU5MGRlYTRhY2VjYjRjMTZmMTRlMmUx
+PgovVSA8NzYyMTk5Y2M4NjdjMzA2ZDg2ZWNiNGQ1YzcyNzRhMjczYzFiN2Zk
+N2IwNjMxYjcwNjdiZWM4YzE0ZWFmNjEzMj4KL1AgNDI5NDk2NzIzNQo+Pgo+
+PgpzdGFydHhyZWYKMTcwNQolJUVPRgo=
+
+----==_mimepart_6283768a3e541_1363e4f74-49a--
+
+[ActiveJob] [ActionMailer::MailDeliveryJob] [837fcf85-16b5-4dbc-b517-7e24d04ba910] Performed ActionMailer::MailDeliveryJob (Job ID: 837fcf85-16b5-4dbc-b517-7e24d04ba910) from Async(default) in 4103.79ms
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 04:21:22 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (2.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "example curl 2"], ["body", "example curl"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-17 21:21:22.661405"], ["updated_at", "2022-05-17 21:21:22.661405"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 7.5ms | Allocations: 1914)
+  [1m[36mAuthor Load (1.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (1.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (1.0ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: 9316b4ef-76df-458e-a08d-4ee6b06e6232) to Async(default) with arguments: "SubscriberMailer", "mail_to_subscriber", "deliver_now", {:args=>[#<GlobalID:0x00007fb0a1455160 @uri=#<URI::GID gid://blogger/Subscriber/3>>, #<GlobalID:0x00007fb0a1454b20 @uri=#<URI::GID gid://blogger/Author/2>>, #<GlobalID:0x00007fb0a1454580 @uri=#<URI::GID gid://blogger/Article/33>>]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [9316b4ef-76df-458e-a08d-4ee6b06e6232]   [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::MailDeliveryJob] [9316b4ef-76df-458e-a08d-4ee6b06e6232]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::MailDeliveryJob] [9316b4ef-76df-458e-a08d-4ee6b06e6232]   [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::MailDeliveryJob] [9316b4ef-76df-458e-a08d-4ee6b06e6232] Performing ActionMailer::MailDeliveryJob (Job ID: 9316b4ef-76df-458e-a08d-4ee6b06e6232) from Async(default) enqueued at 2022-05-17T21:21:22Z with arguments: "SubscriberMailer", "mail_to_subscriber", "deliver_now", {:args=>[#<GlobalID:0x00007fb0a1514858 @uri=#<URI::GID gid://blogger/Subscriber/3>>, #<GlobalID:0x00007fb0a15142b8 @uri=#<URI::GID gid://blogger/Author/2>>, #<GlobalID:0x00007fb0a150fbf0 @uri=#<URI::GID gid://blogger/Article/33>>]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [9316b4ef-76df-458e-a08d-4ee6b06e6232]   Rendering html template
+[ActiveJob] [ActionMailer::MailDeliveryJob] [9316b4ef-76df-458e-a08d-4ee6b06e6232]   Rendered html template (Duration: 0.1ms | Allocations: 13)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [9316b4ef-76df-458e-a08d-4ee6b06e6232] SubscriberMailer#mail_to_subscriber: processed outbound mail in 16.6ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [9316b4ef-76df-458e-a08d-4ee6b06e6232] Delivered mail 628411d3421_59c54f60-3c4@dirga-ThinkPad-X250.mail (5370.0ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [9316b4ef-76df-458e-a08d-4ee6b06e6232] Date: Wed, 18 May 2022 04:21:22 +0700
+From: notifications@example.com
+To: dirgantoro.developer@gmail.com
+Message-ID: <628411d3421_59c54f60-3c4@dirga-ThinkPad-X250.mail>
+Subject: Hello dirgantoro
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_628411d2f377f_59c54f60-44c";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_628411d2f377f_59c54f60-44c
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h2>Hai, dirgantoro.</h2></br><h4>dirga baru saja membuat artikel baru</h4>
+----==_mimepart_628411d2f377f_59c54f60-44c
+Content-Type: application/pdf;
+ filename="example curl 2.pdf"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="example curl 2.pdf"
+Content-ID: <628411d3f6c_59c54f60-275@dirga-ThinkPad-X250.mail>
+
+JVBERi0xLjMKJf////8KMSAwIG9iago8PCAvQ3JlYXRvciA8MTEzMWZmNmZk
+Zj4KL1Byb2R1Y2VyIDwxMTMxZmY2ZmRmPgo+PgplbmRvYmoKMiAwIG9iago8
+PCAvVHlwZSAvQ2F0YWxvZwovUGFnZXMgMyAwIFIKPj4KZW5kb2JqCjMgMCBv
+YmoKPDwgL1R5cGUgL1BhZ2VzCi9Db3VudCAxCi9LaWRzIFs1IDAgUl0KPj4K
+ZW5kb2JqCjQgMCBvYmoKPDwgL0xlbmd0aCAxNjgKPj4Kc3RyZWFtCnUKlF45
+KYrO29/2onl6RRu/gJq4Gb8pnYDk+BRTEahyybPf/oH3DCsUqHF+UshHxPrh
+42y3NcuXqHXm3zk2f3Fi5V/7474i9yk4Zzr/pquWCrux9dZynXwf7HCdL4p+
+hqK3B/o/m8uJF26JQfUUnOXwp+6TO311E6yWd6wYC1Qr+iw8Yoc35e6/Zzzk
+ah3mD58Rrn5ZHPbR6EwbJ2Ent1uabjxbLGaQ2QplbmRzdHJlYW0KZW5kb2Jq
+CjUgMCBvYmoKPDwgL1R5cGUgL1BhZ2UKL1BhcmVudCAzIDAgUgovTWVkaWFC
+b3ggWzAgMCA2MTIgNzkyXQovQ3JvcEJveCBbMCAwIDYxMiA3OTJdCi9CbGVl
+ZEJveCBbMCAwIDYxMiA3OTJdCi9UcmltQm94IFswIDAgNjEyIDc5Ml0KL0Fy
+dEJveCBbMCAwIDYxMiA3OTJdCi9Db250ZW50cyA0IDAgUgovUmVzb3VyY2Vz
+IDw8IC9Qcm9jU2V0IFsvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1h
+Z2VJXQovRm9udCA8PCAvRjIuMCA2IDAgUgovRjEuMCA3IDAgUgo+Pgo+Pgo+
+PgplbmRvYmoKNiAwIG9iago8PCAvVHlwZSAvRm9udAovU3VidHlwZSAvVHlw
+ZTEKL0Jhc2VGb250IC9IZWx2ZXRpY2EtQm9sZAovRW5jb2RpbmcgL1dpbkFu
+c2lFbmNvZGluZwo+PgplbmRvYmoKNyAwIG9iago8PCAvVHlwZSAvRm9udAov
+U3VidHlwZSAvVHlwZTEKL0Jhc2VGb250IC9IZWx2ZXRpY2EKL0VuY29kaW5n
+IC9XaW5BbnNpRW5jb2RpbmcKPj4KZW5kb2JqCnhyZWYKMCA4CjAwMDAwMDAw
+MDAgNjU1MzUgZiAKMDAwMDAwMDAxNSAwMDAwMCBuIAowMDAwMDAwMDgxIDAw
+MDAwIG4gCjAwMDAwMDAxMzAgMDAwMDAgbiAKMDAwMDAwMDE4NyAwMDAwMCBu
+IAowMDAwMDAwNDA2IDAwMDAwIG4gCjAwMDAwMDA2ODQgMDAwMDAgbiAKMDAw
+MDAwMDc4NiAwMDAwMCBuIAp0cmFpbGVyCjw8IC9TaXplIDgKL1Jvb3QgMiAw
+IFIKL0luZm8gMSAwIFIKL0VuY3J5cHQgPDwgL0ZpbHRlciAvU3RhbmRhcmQK
+L1YgMQovUiAyCi9PIDw5ZjYzMjQ1NzlkNWNjNjA4MTU2ZTJkYTE2YmI5OTc5
+MmNiNTNmNGRjNjU5MGRlYTRhY2VjYjRjMTZmMTRlMmUxPgovVSA8NzYyMTk5
+Y2M4NjdjMzA2ZDg2ZWNiNGQ1YzcyNzRhMjczYzFiN2ZkN2IwNjMxYjcwNjdi
+ZWM4YzE0ZWFmNjEzMj4KL1AgNDI5NDk2NzIzNQo+Pgo+PgpzdGFydHhyZWYK
+ODgzCiUlRU9GCg==
+
+----==_mimepart_628411d2f377f_59c54f60-44c--
+
+[ActiveJob] [ActionMailer::MailDeliveryJob] [9316b4ef-76df-458e-a08d-4ee6b06e6232] Performed ActionMailer::MailDeliveryJob (Job ID: 9316b4ef-76df-458e-a08d-4ee6b06e6232) from Async(default) in 5398.57ms
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 1.7ms | Allocations: 1020)
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.9ms | Allocations: 491)
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.6ms | Allocations: 153)
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.9ms | Allocations: 439)
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.9ms | Allocations: 439)
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 1.1ms | Allocations: 439)
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 1.0ms | Allocations: 439)
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 1.1ms | Allocations: 438)
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.9ms | Allocations: 438)
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.8ms | Allocations: 151)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:25:53 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (4.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:25:53.613964"], ["updated_at", "2022-05-18 07:25:53.613964"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 4.9ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (1.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.9ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_mail_subscriber' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:33:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:28:38 +0700
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:28:38.829394"], ["updated_at", "2022-05-18 07:28:38.829394"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_mail_subscriber' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:33:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:29:17 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:29:17.610009"], ["updated_at", "2022-05-18 07:29:17.610009"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.7ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_mail_subscriber' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:33:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:29:44 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:29:45.093206"], ["updated_at", "2022-05-18 07:29:45.093206"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.2ms | Allocations: 18)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_mail_subscriber' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:33:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:31:46 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:31:46.979086"], ["updated_at", "2022-05-18 07:31:46.979086"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 4.9ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_mail_subscriber' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:33:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:32:35 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:32:35.553637"], ["updated_at", "2022-05-18 07:32:35.553637"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:33:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:34:50 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:34:50.553925"], ["updated_at", "2022-05-18 07:34:50.553925"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.2ms | Allocations: 18)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:36:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:38:06 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:38:06.260862"], ["updated_at", "2022-05-18 07:38:06.260862"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.3ms | Allocations: 17)
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (1.6ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:36:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:38:21 +0700
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:38:21.988946"], ["updated_at", "2022-05-18 07:38:21.988946"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 17)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:36:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:39:00 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:39:00.692783"], ["updated_at", "2022-05-18 07:39:00.692783"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:37:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:39:20 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:39:20.177484"], ["updated_at", "2022-05-18 07:39:20.177484"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 17)
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.2ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:37:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:39:36 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:39:36.647522"], ["updated_at", "2022-05-18 07:39:36.647522"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 17)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.2ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.2ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:37:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:40:11 +0700
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:40:11.335920"], ["updated_at", "2022-05-18 07:40:11.335920"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 17)
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:37:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:40:18 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:40:18.399796"], ["updated_at", "2022-05-18 07:40:18.399796"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 17)
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:37:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:40:29 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:40:29.338547"], ["updated_at", "2022-05-18 07:40:29.338547"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.2ms | Allocations: 18)
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.2ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.2ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_emailx' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:37:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:45:22 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:45:23.041974"], ["updated_at", "2022-05-18 07:45:23.041974"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 5.1ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (1.0ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email_subscriber' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:37:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:49:02 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:49:02.708648"], ["updated_at", "2022-05-18 07:49:02.708648"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 4.4ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email_subscriber' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:38:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:52:05 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Monetizazion Guide"], ["body", "For example, when installed from GitHub (as opposed to from a prepackaged archive), the Flutter tool will download the Dart SDK from Google servers immediately when first run, as it is used to execute the flutter tool itself. This will also occur when Flutter is upgraded (e.g. by running the flutter upgrade command)."], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:52:06.081898"], ["updated_at", "2022-05-18 07:52:06.081898"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 5.8ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (1.8ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.8ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email_subscriber' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:38:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:54:36 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:54:36.556293"], ["updated_at", "2022-05-18 07:54:36.556293"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 4.5ms | Allocations: 1852)
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.7ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email_subscriber' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:38:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 14:59:06 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 07:59:06.542498"], ["updated_at", "2022-05-18 07:59:06.542498"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.2ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email_subscriber' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:38:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:02:16 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:02:16.979268"], ["updated_at", "2022-05-18 08:02:16.979268"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 4.0ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (1.1ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:39:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:29:51 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:29:51.285788"], ["updated_at", "2022-05-18 08:29:51.285788"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 5.8ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (1.2ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (1.0ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:40:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:31:05 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:31:06.099991"], ["updated_at", "2022-05-18 08:31:06.099991"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.9ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (1.2ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:34:59 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:34:59.759515"], ["updated_at", "2022-05-18 08:34:59.759515"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 6.6ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.8ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:35:47 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:35:47.413745"], ["updated_at", "2022-05-18 08:35:47.413745"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 5.7ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.8ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `deliver_later' for "[SEND EMAIL] undefined local variable or method `attachments' for TesMailer:Class":String):
+  
+app/controllers/api/v1/article/resources/article.rb:41:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:38:28 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (1.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:38:29.168330"], ["updated_at", "2022-05-18 08:38:29.168330"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.5ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email_subscriberx' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:40:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:39:28 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:39:28.745001"], ["updated_at", "2022-05-18 08:39:28.745001"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `send_email' for MandrillMailer:Module):
+  
+app/controllers/api/v1/article/resources/article.rb:40:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:40:34 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:40:34.847174"], ["updated_at", "2022-05-18 08:40:34.847174"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 4.1ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:41:06 +0700
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:41:06.563102"], ["updated_at", "2022-05-18 08:41:06.563102"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.6ms | Allocations: 18)
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:41:25 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:41:25.916793"], ["updated_at", "2022-05-18 08:41:25.916793"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:41:45 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:41:45.192782"], ["updated_at", "2022-05-18 08:41:45.192782"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 1.1ms | Allocations: 181)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:44:03 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:44:03.497790"], ["updated_at", "2022-05-18 08:44:03.497790"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 6.6ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 0.5ms | Allocations: 171)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:46:29 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:46:29.704424"], ["updated_at", "2022-05-18 08:46:29.704424"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 5.1ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.8ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (1.1ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 1.1ms | Allocations: 171)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:47:35 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:47:35.591977"], ["updated_at", "2022-05-18 08:47:35.591977"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 7.2ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.8ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.6ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:50:26 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:50:26.438127"], ["updated_at", "2022-05-18 08:50:26.438127"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.8ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.6ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:51:40 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:51:40.707762"], ["updated_at", "2022-05-18 08:51:40.707762"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 2.7ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:52:03 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:52:03.836273"], ["updated_at", "2022-05-18 08:52:03.836273"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 1.6ms | Allocations: 181)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:52:27 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:52:27.269131"], ["updated_at", "2022-05-18 08:52:27.269131"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 0.1ms | Allocations: 19)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:53:05 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:53:05.965190"], ["updated_at", "2022-05-18 08:53:05.965190"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 4.4ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.5ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.6ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 0.6ms | Allocations: 171)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:55:13 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (1.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:55:13.756436"], ["updated_at", "2022-05-18 08:55:13.756436"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 6.8ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.5ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:56:38 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:56:38.855569"], ["updated_at", "2022-05-18 08:56:38.855569"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 4.9ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.5ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.7ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:57:59 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:58:00.058206"], ["updated_at", "2022-05-18 08:58:00.058206"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.7ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:58:52 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:58:52.554048"], ["updated_at", "2022-05-18 08:58:52.554048"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 4.8ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.8ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.6ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 0.8ms | Allocations: 171)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 15:59:33 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 08:59:33.452454"], ["updated_at", "2022-05-18 08:59:33.452454"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 8.7ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (1.1ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 0.6ms | Allocations: 171)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:00:42 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:00:42.958668"], ["updated_at", "2022-05-18 09:00:42.958668"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 2.7ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.5ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (2.0ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 0.5ms | Allocations: 171)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:02:36 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:02:36.809963"], ["updated_at", "2022-05-18 09:02:36.809963"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:03:01 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:03:02.157316"], ["updated_at", "2022-05-18 09:03:02.157316"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.2ms | Allocations: 18)
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.8ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.6ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:03:21 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:03:21.525137"], ["updated_at", "2022-05-18 09:03:21.525137"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 6.0ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.5ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.7ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 0.5ms | Allocations: 174)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:08:36 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:08:36.738781"], ["updated_at", "2022-05-18 09:08:36.738781"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 6.6ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:13:15 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:13:15.271534"], ["updated_at", "2022-05-18 09:13:15.271534"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 2.9ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.7ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 0.6ms | Allocations: 171)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:14:12 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:14:12.363484"], ["updated_at", "2022-05-18 09:14:12.363484"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.8ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (2.0ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.8ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 0.6ms | Allocations: 171)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:14:52 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:14:53.146917"], ["updated_at", "2022-05-18 09:14:53.146917"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 6.5ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.5ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:15:27 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:15:28.007765"], ["updated_at", "2022-05-18 09:15:28.007765"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.2ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.8ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  
+NoMethodError (undefined method `put' for TesMailer:Class
+Did you mean?  puts
+               putc):
+  
+app/mailers/tes_mailer.rb:20:in `rescue in send_email_subscriber'
+app/mailers/tes_mailer.rb:19:in `send_email_subscriber'
+app/controllers/api/v1/article/resources/article.rb:41:in `block (3 levels) in <class:Article>'
+app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:15:45 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:15:45.843546"], ["updated_at", "2022-05-18 09:15:45.843546"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (1.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:16:00 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:16:00.570735"], ["updated_at", "2022-05-18 09:16:00.570735"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 2.8ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.9ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:19:37 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:19:38.070720"], ["updated_at", "2022-05-18 09:19:38.070720"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.9ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.5ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 19)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:20:34 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:20:34.912776"], ["updated_at", "2022-05-18 09:20:34.912776"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.3ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (1.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 19)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:23:18 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:23:18.695652"], ["updated_at", "2022-05-18 09:23:18.695652"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 2.7ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.6ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:27:29 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:27:29.885684"], ["updated_at", "2022-05-18 09:27:29.885684"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 2.9ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.9ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 0.1ms | Allocations: 19)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:37:15 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:37:15.310234"], ["updated_at", "2022-05-18 09:37:15.310234"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.7ms | Allocations: 1852)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 9.8ms | Allocations: 3798)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:37:44 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:37:44.788840"], ["updated_at", "2022-05-18 09:37:44.788840"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 1.0ms | Allocations: 354)
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.3ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 1.4ms | Allocations: 156)
+Started POST "/api/v1/article" for 127.0.0.1 at 2022-05-18 16:38:08 +0700
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Android Guide"], ["body", "For example"], ["author", "dirgantoro.developer@gmail.com"], ["created_at", "2022-05-18 09:38:08.090023"], ["updated_at", "2022-05-18 09:38:08.090023"]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/article/resources/article.rb:13:in `block (2 levels) in <class:Article>'
+  Rendering subscriber_mailer/welcome_email.html.erb
+DEPRECATION WARNING: Passing instance variables to `render` is deprecated.
+In Rails 7.1, @article will be ignored.
+ (called from block (2 levels) in <class:Article> at /home/dirga/Documents/Projects/Rails/blogger/app/controllers/api/v1/article/resources/article.rb:14)
+  Rendered subscriber_mailer/welcome_email.html.erb (Duration: 3.3ms | Allocations: 293)
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."email" = $1 LIMIT $2[0m  [["email", "dirgantoro.developer@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:28:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscription Load (0.3ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:30:in `block (2 levels) in <class:Article>'
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/article/resources/article.rb:31:in `block (3 levels) in <class:Article>'
+  Rendering subscriber_mailer/subscriber_email.html.erb
+  Rendered subscriber_mailer/subscriber_email.html.erb (Duration: 3.6ms | Allocations: 739)
