@@ -30,7 +30,7 @@ class Api::V1::Article::Resources::Article < Grape::API
       subscriptions.each do|subscription|
         subscriber = Subscriber.find(subscription.subscriber_id)
         # ::TesMailer.send_email_subscriber(subscriber, author, article)
-        Scheduler.create(clock: "07:40",sun:false,mon:false,tue:false,wed:false,thu:false,fri:true,sat:false)
+        # Scheduler.create(clock:params[:clock],sun:params[:sun],mon:params[:mon],tue:params[:tue],wed:params[:wed],thu:params[:thu],fri:params[:fri],sat:params[:sat])
       end
     end
     desc "Update"
@@ -43,5 +43,6 @@ class Api::V1::Article::Resources::Article < Grape::API
       article = Article.find(params[:id])
       article.destroy
     end
+
   end
 end

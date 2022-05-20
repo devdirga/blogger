@@ -5,6 +5,7 @@ module Api
       mount Api::V1::Subscriber::Routes
       mount Api::V1::Article::Routes
       mount Api::V1::Subscription::Routes
+      mount Api::V1::Scheduler::Routes
     end
   end
 end

@@ -33,6 +33,8 @@ scheduler.every '1m' do
     tsat = true
   end
 
+  puts "clock #{hrs}"
+
   Scheduler.where(clock:hrs,sun:tsun,mon:tmon,tue:ttue,wed:twed,thu:tthu,fri:tfri,sat:tsat).each do
     Article.where(blast:false).each do |article|
       author = Author.find_by_email(article.author)
