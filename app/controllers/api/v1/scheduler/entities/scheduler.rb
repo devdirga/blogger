@@ -5,13 +5,13 @@ module Api
         class Scheduler < Grape::Entity
           expose :id
           expose :clock
-          expose :sun
-          expose :mon
-          expose :tue
-          expose :wed
-          expose :thu
-          expose :fri
-          expose :sat
+          expose :sunday
+          expose :monday
+          expose :tuesday
+          expose :wednesday
+          expose :thursday
+          expose :friday
+          expose :saturday
         end
       end
     end

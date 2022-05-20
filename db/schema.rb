@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_20_000931) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_20_091713) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,15 +48,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_20_000931) do
 
   create_table "schedulers", force: :cascade do |t|
     t.string "clock"
-    t.boolean "sun"
-    t.boolean "mon"
-    t.boolean "tue"
-    t.boolean "wed"
-    t.boolean "thu"
-    t.boolean "fri"
-    t.boolean "sat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "sunday"
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
+    t.boolean "saturday"
   end
 
   create_table "subscribers", force: :cascade do |t|

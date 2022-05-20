@@ -4,11 +4,9 @@ class TesMailer
   class << self
     def send_email_subscriber(subscriber, author, article)
       begin
-
         # title = article.title + ".pdf"
         # file = File.join(Rails.root, title)
         # attachments[title] = File.read(file)
-
         response = ::DcidevMailer::Mandrill.send_email(
           subject: "Hello, #{subscriber.name}",
           html_body: "<h2>Hai, #{subscriber.name}.</h2></br><h4>#{author.name} baru saja membuat artikel baru</h4>",
