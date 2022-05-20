@@ -29,16 +29,8 @@ class Api::V1::Article::Resources::Article < Grape::API
       subscriptions = Subscription.where(author_id: author.id)
       subscriptions.each do|subscription|
         subscriber = Subscriber.find(subscription.subscriber_id)
-
-        puts subscriber
-        puts author
-        puts article
-
-        # SubscriberMailer.mail_to_subscriber(subscriber, author, article).deliver_later
-        # MandrillMailer.send_email_subscriber(subscriber, author, article)
-
-        # ::MandrillMailer.send_email
-        ::TesMailer.send_email_subscriber(subscriber, author, article)
+        # ::TesMailer.send_email_subscriber(subscriber, author, article)
+        Scheduler.create(clock: "07:40",sun:false,mon:false,tue:false,wed:false,thu:false,fri:true,sat:false)
       end
     end
     desc "Update"

@@ -80,6 +80,11 @@ GEM
     debug (1.5.0)
       irb (>= 1.3.6)
       reline (>= 0.2.7)
+    delayed_job (4.1.10)
+      activesupport (>= 3.0, < 8.0)
+    delayed_job_active_record (4.1.7)
+      activerecord (>= 3.0, < 8.0)
+      delayed_job (>= 3.0, < 5)
     digest (3.1.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -104,7 +109,12 @@ GEM
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 1.0, >= 1.0.2)
     erubi (1.10.0)
+    et-orbi (1.2.7)
+      tzinfo
     excon (0.92.3)
+    fugit (1.5.3)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
     grape (1.6.2)
@@ -185,6 +195,7 @@ GEM
       prawn (>= 1.3.0, < 3.0.0)
     puma (5.6.4)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.6.0)
     rack (2.2.3)
     rack-accept (0.4.5)
@@ -224,6 +235,8 @@ GEM
       ansi
       ast
     ruby2_keywords (0.0.5)
+    rufus-scheduler (3.8.1)
+      fugit (~> 1.1, >= 1.1.6)
     strscan (3.0.3)
     thor (1.2.1)
     timeout (0.2.0)
@@ -242,6 +255,7 @@ DEPENDENCIES
   bootsnap
   dcidev_mailer
   debug
+  delayed_job_active_record
   dotenv-rails (~> 2.7.6)
   grape (~> 1.6.2)
   grape-entity
@@ -252,6 +266,7 @@ DEPENDENCIES
   prawn-rails
   puma (~> 5.0)
   rails (~> 7.0.3)
+  rufus-scheduler
   tzinfo-data
 
 RUBY VERSION
