@@ -9,33 +9,33 @@ scheduler.every '20s' do
   t = Time.zone.now
   hrs = t.strftime("%I:%M")
   days = t.strftime("%A")
-  tsun = false
-  tmon = false
-  ttue = false
-  twed = false
-  tthu = false
-  tfri = false
-  tsat = false
-  case days
-  when "Sunday"
-    tsun = true
-  when "Monday"
-    tmon = true
-  when "Tuesday"
-    ttue = true
-  when "Wednesday"
-    twed = true
-  when "Thursday"
-    tthu = true
-  when "Friday"
-    tfri = true
-  when "Saturday"
-    tsat = true
+
+  sch = Scheduler.find(5)
+  listday = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+  ll = []
+  if (sch.sun == true)
+    ll.push("Sunday")
+  end
+  if (sch.mon == true)
+    ll.push("Monday")
+  end
+  if (sch.tue == true)
+    ll.push("Tuesday")
+  end
+  if (sch.wed == true)
+    ll.push("Wednesday")
+  end
+  if (sch.thu == true)
+    ll.push("Thursday")
+  end
+  if (sch.fri == true)
+    ll.push("Friday")
+  end
+  if (sch.sat == true)
+    ll.push("Saturday")
   end
 
-  puts "clock #{hrs}"
-
-  Scheduler.where(clock:hrs,sun:tsun,mon:tmon,tue:ttue,wed:twed,thu:tthu,fri:tfri,sat:tsat).each do
+  if (ll.include?days)
     Article.where(blast:false).each do |article|
       author = Author.find_by_email(article.author)
       Subscription.where(author_id:author.id).each do |subscription|
