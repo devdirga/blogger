@@ -5,7 +5,7 @@ if defined?(Rails::Console)|| Rails.env.test? || File.split($PROGRAM_NAME).last 
 end
 
 scheduler = Rufus::Scheduler.new
-scheduler.every '1m' do
+scheduler.every '20s' do
   t = Time.zone.now
   hrs = t.strftime("%I:%M")
   days = t.strftime("%A")
