@@ -10,7 +10,7 @@ scheduler.every '20s' do
   hrs = t.strftime("%I:%M")
   days = t.strftime("%A")
 
-  sch = Scheduler.find(5)
+  sch = Scheduler.first
   listday = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
   ll = []
   if (sch.sun == true)
