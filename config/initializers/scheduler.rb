@@ -33,15 +33,14 @@ scheduler.every '1m' do
     tsat = true
   end
 
-  puts hrs
-
   Scheduler.where(clock:hrs,sun:tsun,mon:tmon,tue:ttue,wed:twed,thu:tthu,fri:tfri,sat:tsat).each do
     Article.where(blast:false).each do |article|
       author = Author.find_by_email(article.author)
       Subscription.where(author_id:author.id).each do |subscription|
         subscriber = Subscriber.find(subscription.subscriber_id)
-        ::TesMailer.send_email_subscriber(subscriber, author, article)
+        ::TesMailer.delay(:queue => "#{subscriber.email} - #{author.name} - #{article.title}").send_email_subscriber(subscriber, author, article)
       end
+      article.update(blast:true)
     end
   end
 
