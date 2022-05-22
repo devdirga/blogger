@@ -7,6 +7,7 @@ module Api
         prefix :api
         mount Api::V1::Scheduler::Resources::Scheduler
         mount Api::V1::Scheduler::Entities::Scheduler
+        mount Api::V1::Scheduler::Params::Scheduler
       end
     end
   end

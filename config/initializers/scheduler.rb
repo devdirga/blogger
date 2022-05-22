@@ -9,6 +9,7 @@ scheduler.every '30s' do
   t = Time.zone.now
   hrs = t.strftime("%I:%M")
   days = t.strftime("%A")
+  puts "clock : #{hrs}"
   Scheduler.where("clock='#{hrs}' AND #{days}=TRUE").each do |sch|
     Article.where(blast:false).each do |article|
       author = Author.find_by_email(article.author)

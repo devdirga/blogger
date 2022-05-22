@@ -1,4 +1,5 @@
 class Api::V1::Subscriber::Resources::Subscriber < Grape::API
+  helpers Api::V1::Subscriber::Params::Subscriber
   resource :subscriber do
     desc "All"
     get do
@@ -9,18 +10,27 @@ class Api::V1::Subscriber::Resources::Subscriber < Grape::API
       Subscriber.find(params[:id])
     end
     desc "Create"
+    params do
+      use :subscriber_params
+    end
     post do
-      Subscriber.create(name: params[:name],email: params[:email],phone: params[:phone])
+      subscriber = Subscriber.create(params)
+      if (subscriber.id.present?)
+        { data: subscriber}
+      else
+        { status_code: 305}
+      end
     end
     desc "Update"
+    params do
+      use :subscriber_params
+    end
     put do
-      subscriber = Subscriber.find(params[:id])
-      subscriber.update(name: params[:name],email:params[:email],phone:params[:phone])
+      subscriber = Subscriber.find(params[:id]).update(params)
     end
     desc "Delete"
     delete do
-      subscriber = Subscriber.find(params[:id])
-      subscriber.destroy
+      Subscriber.find(params[:id]).destroy
     end
   end
 end

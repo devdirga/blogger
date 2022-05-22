@@ -3,6 +3,8 @@ module Api
     module Subscriber
       module Entities
         class Subscriber < Grape::Entity
+          expose :id
+          expose :nik
           expose :name
           expose :email
           expose :phone

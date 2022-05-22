@@ -6,7 +6,8 @@ module Api
         format :json
         prefix :api
         mount Api::V1::Author::Resources::Author
-        # mount Api::V1::Author::Entities::Author
+        mount Api::V1::Author::Entities::Author
+        mount Api::V1::Author::Params::Author
       end
     end
   end

@@ -3,6 +3,7 @@ module Api
     module Article
       module Entities
         class Article < Grape::Entity
+          expose :id
           expose :title
           expose :body
           expose :author

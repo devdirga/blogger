@@ -7,6 +7,7 @@ module Api
         prefix :api
         mount Api::V1::Subscriber::Resources::Subscriber
         mount Api::V1::Subscriber::Entities::Subscriber
+        mount Api::V1::Subscriber::Params::Subscriber
       end
     end
   end
