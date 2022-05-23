@@ -26,11 +26,15 @@ class Api::V1::Subscriber::Resources::Subscriber < Grape::API
       use :subscriber_params
     end
     put do
-      subscriber = Subscriber.find(params[:id]).update(params)
+      Subscriber.find(params[:id]).update(params)
     end
     desc "Delete"
     delete do
-      Subscriber.find(params[:id]).destroy
+      subscriber = Subscriber.find(params[:id])
+      soft_del_subscriber = subscriber.destroy
+      if (soft_del_subscriber.present?)
+        User.create(nik:subscriber.nik, name:subscriber.name, email:subscriber.email, phone:subscriber.phone)
+      end
     end
   end
 end

@@ -65,3 +65,5 @@ gem 'dotenv-rails', '~> 2.7.6'
 gem 'delayed_job_active_record'
 
 gem "rufus-scheduler"
+
+gem 'acts_as_paranoid'
