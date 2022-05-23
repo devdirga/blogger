@@ -3,6 +3,7 @@ module Api
     module Author
       module Entities
         class Author < Grape::Entity
+          expose :id
           expose :name
           expose :email
           expose :phone

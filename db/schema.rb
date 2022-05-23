@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_23_035843) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_23_045835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,15 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_035843) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "niks", force: :cascade do |t|
-    t.string "User"
-    t.string "name"
-    t.string "email"
-    t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "schedulers", force: :cascade do |t|
     t.string "clock"
     t.datetime "created_at", null: false
@@ -84,7 +75,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_035843) do
     t.datetime "updated_at", null: false
     t.bigint "author_id", null: false
     t.bigint "subscriber_id", null: false
+    t.datetime "deleted_at"
     t.index ["author_id"], name: "index_subscriptions_on_author_id"
+    t.index ["deleted_at"], name: "index_subscriptions_on_deleted_at"
     t.index ["subscriber_id"], name: "index_subscriptions_on_subscriber_id"
   end
 

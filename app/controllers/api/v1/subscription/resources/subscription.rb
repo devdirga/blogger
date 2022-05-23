@@ -7,7 +7,8 @@ class Api::V1::Subscription::Resources::Subscription < Grape::API
     desc "Create"
 
     post do
-      Subscription.create(author_id: params[:author_id],subscriber_id: params[:subscriber_id])
+      puts "Create subscription..."
+      Subscription.create(params)
     end
     desc "Delete"
     delete do
