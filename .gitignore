@@ -9,10 +9,10 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
+/tmp/cache/*
 /public/uploads/*
 !/log/.keep
-!/tmp/.keep
+!/tmp/cache/.keep
 !/public/uploads/.keep
 
 # Ignore pidfiles, but keep the directory.
