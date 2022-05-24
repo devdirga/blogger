@@ -67,3 +67,5 @@ gem 'delayed_job_active_record'
 gem "rufus-scheduler"
 
 gem 'acts_as_paranoid'
+
+gem 'carrierwave', '~> 2.0'

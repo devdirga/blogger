@@ -3,7 +3,7 @@ class Api::V1::Author::Resources::Author < Grape::API
   resource :author do
     desc "All"
     get do
-      present Author.all, with: Api::V1::Author::Entities::Author
+      present Author.all.order(id: :asc), with: Api::V1::Author::Entities::Author
     end
     desc "Get One"
     get ":id" do
@@ -18,7 +18,9 @@ class Api::V1::Author::Resources::Author < Grape::API
     end
     desc "Update"
     put do
-      Author.find(params[:id]).update(params)
+      author = Author.find(params[:id])
+      author.avatar = params[:file]
+      author.save!
     end
     desc "Delete"
     delete do

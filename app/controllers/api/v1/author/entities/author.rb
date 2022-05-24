@@ -7,6 +7,7 @@ module Api
           expose :name
           expose :email
           expose :phone
+          expose :avatar
         end
       end
     end
