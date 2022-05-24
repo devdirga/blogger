@@ -34,10 +34,7 @@ class Api::V1::Subscriber::Resources::Subscriber < Grape::API
       Subscription.where("subscriber_id = #{subscriber.id}").each do |subscription|
         subscription.destroy
       end
-      soft_del_subscriber = subscriber.destroy
-      if (soft_del_subscriber.present?)
-        User.create(nik:subscriber.nik, name:subscriber.name, email:subscriber.email, phone:subscriber.phone)
-      end
+      subscriber.destroy
     end
   end
 end
