@@ -8,6 +8,7 @@ class Api::V1::Author::Resources::Author < Grape::API
     desc "Get One"
     get ":id" do
       Author.find(params[:id])
+      Author.where("")
     end
     desc "Create"
     params do
@@ -26,5 +27,6 @@ class Api::V1::Author::Resources::Author < Grape::API
     delete do
       Author.find(params[:id]).destroy
     end
+
   end
 end

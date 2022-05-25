@@ -6,7 +6,7 @@ module Api
           extend Grape::API::Helpers
           params :article_params do
             requires :title, type: String
-            requires :author, type: String
+            requires :author_id, type: Integer
           end
         end
       end

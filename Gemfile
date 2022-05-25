@@ -69,3 +69,5 @@ gem "rufus-scheduler"
 gem 'acts_as_paranoid'
 
 gem 'carrierwave', '~> 2.0'
+
+gem 'axlsx'
