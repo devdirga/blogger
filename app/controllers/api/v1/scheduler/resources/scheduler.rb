@@ -13,5 +13,8 @@ class Api::V1::Scheduler::Resources::Scheduler < Grape::API
     put do
       Scheduler.find(params[:id]).update(params)
     end
+    delete do
+      Scheduler.find(params[:id]).destroy
+    end
   end
 end

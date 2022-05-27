@@ -7,5 +7,12 @@ class Api::V1::Articletag::Resources::Articletag < Grape::API
     post do
       ArticleTag.create(params)
     end
+    put do
+      articletag = ArticleTag.find(params[:id])
+      articletag.update(params)
+    end
+    delete do
+      ArticleTag.find(params[:id]).destroy
+    end
   end
 end

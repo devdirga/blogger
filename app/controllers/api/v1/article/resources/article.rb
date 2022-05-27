@@ -2,7 +2,6 @@ class Api::V1::Article::Resources::Article < Grape::API
   helpers Api::V1::Article::Params::Article
   resource :article do
     get do
-
       present Article.all, with: Api::V1::Article::Entities::Article
     end
     get ":id" do

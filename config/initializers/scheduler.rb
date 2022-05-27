@@ -5,14 +5,14 @@ if defined?(Rails::Console)|| Rails.env.test? || File.split($PROGRAM_NAME).last 
 end
 
 scheduler = Rufus::Scheduler.new
-scheduler.every '30s' do
+scheduler.every '1m' do
   t = Time.zone.now
   hrs = t.strftime("%I:%M")
   days = t.strftime("%A")
-  puts "clock : #{hrs}"
+  puts "clock : #{hrs}.................................................................."
   Scheduler.where("clock='#{hrs}' AND #{days}=TRUE").each do |sch|
     Article.where(blast:false).each do |article|
-      author = Author.find_by_email(article.author)
+      author = Author.find(article.author_id)
       Subscription.where(author_id:author.id).each do |subscription|
         subscriber = Subscriber.find(subscription.subscriber_id)
         ::TesMailer.delay(:queue => "#{subscriber.email} - #{author.name} - #{article.title}").send_email_subscriber(subscriber, author, article)

@@ -27,6 +27,5 @@ class Api::V1::Author::Resources::Author < Grape::API
     delete do
       Author.find(params[:id]).destroy
     end
-
   end
 end
