@@ -8,6 +8,7 @@ module Api
       mount Api::V1::Scheduler::Routes
       mount Api::V1::Tag::Routes
       mount Api::V1::Articletag::Routes
+      mount Api::V1::Admin::Routes
     end
   end
 end
