@@ -25,11 +25,7 @@ class Api::V1::Subscriber::Resources::Subscriber < Grape::API
       Subscriber.find(params[:id]).update(params)
     end
     delete do
-      subscriber = Subscriber.find(params[:id])
-      Subscription.where("subscriber_id = #{subscriber.id}").each do |subscription|
-        subscription.destroy
-      end
-      subscriber.destroy
+      Subscriber.find(params[:id]).destroy
     end
   end
 end
