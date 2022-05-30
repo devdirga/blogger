@@ -7,4 +7,6 @@ class Article < ApplicationRecord
   validates_uniqueness_of_without_deleted :title
 
   has_many :article_tags, dependent: :destroy
+
+  accepts_nested_attributes_for :article_tags, allow_destroy: true
 end

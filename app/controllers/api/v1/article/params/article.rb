@@ -13,6 +13,7 @@ module Api
               optional :id, type: Integer
               optional :title, type: String
               optional :description, type: String
+              optional :_destroy, type: Boolean
             end
           end
         end
